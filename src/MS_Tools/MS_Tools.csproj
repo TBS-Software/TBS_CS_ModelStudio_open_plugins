@@ -7,8 +7,8 @@
     <ProjectGuid>{472818D4-5893-44D0-B8A3-7E3DB838B4E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MS_Tools_Fr</RootNamespace>
-    <AssemblyName>MS_Tools_Fr</AssemblyName>
+    <RootNamespace>MS_Tools</RootNamespace>
+    <AssemblyName>MS_Tools</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckingProduct.cs" />
     <Compile Include="GeneralTools.cs" />
     <Compile Include="MS_Viper\MS_Viper_Watcher_actions.cs" />
     <Compile Include="MS_Viper\ViperTools.cs" />

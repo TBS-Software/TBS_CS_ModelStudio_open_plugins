@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1FCA917E-602C-4604-B5FF-F330EA76AE46}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>test_app_Fr</RootNamespace>
-    <AssemblyName>test_app_Fr</AssemblyName>
+    <RootNamespace>test_app</RootNamespace>
+    <AssemblyName>test_app</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,13 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MS_Tools\MS_Tools.csproj">
-      <Project>{472818d4-5893-44d0-b8a3-7e3db838b4e7}</Project>
-      <Name>MS_Tools_Fr</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="mdsLibManagerLib">
       <Guid>{1EB7B184-2C93-4DB2-97E8-2F8A392495C1}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -66,6 +59,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MS_Tools\MS_Tools.csproj">
+      <Project>{472818d4-5893-44d0-b8a3-7e3db838b4e7}</Project>
+      <Name>MS_Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

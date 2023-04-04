@@ -7,8 +7,8 @@
     <ProjectGuid>{3AD1973B-8551-4327-8992-90153E869695}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TBS_MS_Toolset_Fr</RootNamespace>
-    <AssemblyName>TBS_MS_Toolset_Fr</AssemblyName>
+    <RootNamespace>TBS_MS_Toolset</RootNamespace>
+    <AssemblyName>TBS_MS_Toolset</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Loader.cs" />
+    <Compile Include="MS_Viper\Loader.cs" />
     <Compile Include="MS_Viper\MS_Viper_Watcher.cs">
       <SubType>Form</SubType>
     </Compile>
