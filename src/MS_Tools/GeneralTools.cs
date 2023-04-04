@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using OdaX;
+using Teigha.DatabaseServices;
+using HostMgd.EditorInput;
 
 namespace MS_Tools
 {
@@ -48,5 +51,52 @@ namespace MS_Tools
 			return false;
 		}
 
+		/// <summary>
+		/// Выборка объектов модели
+		/// </summary>
+		/// <param name="is_ms">True: только объекты MS; False - все объекты</param>
+		/// <returns></returns>
+		public static List<AcadEntity> SelectEntities(bool is_ms = true)
+		{
+            List<AcadEntity> acad_ents = new List<AcadEntity>(); 
+
+            var nc_doc = CurrentDocNet;
+            using (DocumentLock acDocLock = nc_doc.LockDocument())
+            {
+                using (Transaction acTrans = nc_doc.Database.TransactionManager.StartTransaction())
+                {
+                    BlockTable acBlkTbl = acTrans.GetObject(nc_doc.Database.BlockTableId,
+                                                    OpenMode.ForRead) as BlockTable;
+
+                    PromptSelectionResult acSSPrompt = nc_doc.Editor.GetSelection();
+                    if (acSSPrompt.Status == PromptStatus.OK)
+					{
+                        SelectionSet acSSet = acSSPrompt.Value;
+                        foreach (SelectedObject acSSObj in acSSet)
+                        {
+                            // Check to make sure a valid SelectedObject object was returned
+                            if (acSSObj != null)
+                            {
+								var db_obj = acTrans.GetObject(acSSObj.ObjectId, OpenMode.ForRead);
+                                if (db_obj != null)
+								{
+									var com_obj = db_obj.AcadObject as AcadEntity;
+									if (com_obj != null)
+									{
+										if (is_ms)
+										{
+											if (IsMsObject(com_obj)) acad_ents.Add(com_obj);
+											else acad_ents.Add(com_obj);
+                                        }
+									}
+								}
+                            }
+                        }
+                    }
+					acTrans.Commit();
+                }
+            }
+			return acad_ents;
+        }
 	}
 }

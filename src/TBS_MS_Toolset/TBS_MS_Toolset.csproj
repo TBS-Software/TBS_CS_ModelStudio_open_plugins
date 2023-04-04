@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="General\MS_JoinAttrsByBbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\MS_JoinAttrsByBbox.Designer.cs">
+      <DependentUpon>MS_JoinAttrsByBbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MS_Viper\Loader.cs" />
     <Compile Include="MS_Viper\MS_Viper_Watcher.cs">
       <SubType>Form</SubType>
@@ -69,6 +75,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="General\MS_JoinAttrsByBbox.resx">
+      <DependentUpon>MS_JoinAttrsByBbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MS_Viper\MS_Viper_Watcher.resx">
       <DependentUpon>MS_Viper_Watcher.cs</DependentUpon>
     </EmbeddedResource>

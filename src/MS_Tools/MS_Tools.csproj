@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeneralTools.cs" />
+    <Compile Include="General\JoinAttrsByBbox.cs" />
     <Compile Include="MS_Viper\MS_Viper_Watcher_actions.cs" />
     <Compile Include="MS_Viper\ViperTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
