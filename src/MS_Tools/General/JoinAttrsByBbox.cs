@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Teigha.DatabaseServices;
+using Teigha.GraphicsInterface;
 
 namespace MS_Tools.General
 {
@@ -17,7 +18,8 @@ namespace MS_Tools.General
     /// </summary>
     public class JoinAttrsByBbox
     {
-        private GeometryMode mode;
+        public GeometryMode mode;
+        public CoordinatesMode coord_mode;
         private List<AcadEntity> ents_1 = null;
         private List<AcadEntity> ents_2 = null;
         public List<string> moved_prop_names = null;
@@ -42,11 +44,13 @@ namespace MS_Tools.General
             /// Элемент из второй группы полностью содержит в себе элемент из первой группы
             /// или допускает частичное попадание в границы
             /// </summary>
-            Crosses_or_contains,
-            /// <summary>
-            /// Элемент из второй группы не содержит в себе элемент из первой группы даже частично
-            /// </summary>
-            Non_contains
+            Crosses_or_contains
+        }
+
+        public enum CoordinatesMode : int
+        {
+            Mode_2d,
+            Mode_3d
         }
         /// <summary>
         /// Нумератор группы элементов
@@ -56,7 +60,7 @@ namespace MS_Tools.General
             First,
             Second
         }
-        public void JoinAttrsByMode (GeometryMode mode)
+        public void JoinAttrsByMode ()
         {
             //Проверяем элементы
             if (ents_1 == null | ents_2 == null)
@@ -90,6 +94,7 @@ namespace MS_Tools.General
                 {
                     if (!param_names.Contains(param.Name)) param_names.Add(param.Name);
                 }
+
             }
             if (param_names.Any())
             {
